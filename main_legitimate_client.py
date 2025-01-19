@@ -62,4 +62,4 @@ print(f"Server: {Server.SESSION_KEY}")  # Display server's session key
 # Test sending and receiving an encrypted message
 print("Message's test:")
 Benevolent_Client.send_a_msg(input("Write message to be sent: "))  # Client sends an encrypted message to the server
-Server.recieve_msg()  # Server receives and decrypts the message
+Server.receive_msg()  # Server receives and decrypts the message
