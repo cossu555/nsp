@@ -23,4 +23,4 @@ In addition to the benevolent client, the project includes a malicious client th
 
 6.Attack's testing
 
-The program uses threading to simulate the interaction between the benevolent client and the malicious client. The testing begins by creating threads for both clients, with the malicious client accessing to the port before the benevolent client, damaging in this way the connection.
+At the end, the program uses threading to simulate the interaction between the benevolent client and the malicious client. The testing begins by creating threads for both clients, with the malicious client accessing to the port before the benevolent client, damaging in this way the connection.
