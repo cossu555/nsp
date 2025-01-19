@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <!-- The root element representing the project configuration.
+       The version attribute indicates the file's schema version. -->
   <component name="Black">
+    <!-- The "Black" component configuration, possibly for formatting or code style settings. -->
     <option name="sdkName" value="Python 3.12 (pythonProject3)" />
+    <!-- Specifies the Python SDK version and the project SDK name.
+         This indicates the project uses Python 3.12, and the SDK is associated with the "pythonProject3" environment. -->
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (pythonProject3)" project-jdk-type="Python SDK" />
+  <!-- The "ProjectRootManager" component manages the project SDK and version information.
+       - project-jdk-name: The name of the JDK or SDK used in the project (Python 3.12 in this case).
+       - project-jdk-type: Specifies the type of SDK, which here is "Python SDK". -->
 </project>

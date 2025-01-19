@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <!-- Root element representing the project configuration with version 4 schema. -->
   <component name="ProjectModuleManager">
+    <!-- The component managing the modules within the project. -->
     <modules>
+      <!-- List of modules associated with the project. -->
       <module fileurl="file://$PROJECT_DIR$/.idea/pythonProject3.iml" filepath="$PROJECT_DIR$/.idea/pythonProject3.iml" />
+      <!-- Specifies the module for the project.
+           - fileurl: The file URL for the module, referencing the project directory and the `.iml` file for this specific module.
+           - filepath: Specifies the local path to the `.iml` file for the project module, which is also located within the `.idea` folder. -->
     </modules>
   </component>
 </project>

@@ -1,6 +1,12 @@
 <component name="InspectionProjectProfileManager">
+  <!-- This component manages the inspection profiles for the project. -->
   <settings>
+    <!-- Settings related to the inspection profile management. -->
     <option name="USE_PROJECT_PROFILE" value="false" />
+    <!-- The "USE_PROJECT_PROFILE" option determines whether the project-specific inspection profile should be used.
+         - The value "false" indicates that a project-specific inspection profile is not being used, 
+           and the default inspection profile will be applied. -->
     <version value="1.0" />
+    <!-- The version of the inspection profile manager settings. In this case, it's version "1.0". -->
   </settings>
 </component>
