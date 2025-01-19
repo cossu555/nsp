@@ -16,3 +16,8 @@ Message Transmission:The client sends a message to the server, which is encrypte
 
 4.MitM attack
 
+In addition to the benevolent client, the project includes a malicious client that simulates a Man-in-the-Middle (MitM) attack. It intercepts the messages between the benevolent client and the server, forwarding them while logging the data. This malicious client persistenly tries to access to 443 port until it succeeds, then it tries to convert an HTTPS connection in HTTP connection, it's an SSL stripping attack (a particular type of man in the middle attack). It aims to make more unsecure the connection in order to damage the comunication between server and client.
+
+5.Attack's testing
+
+The program uses threading to simulate the interaction between the benevolent client and the malicious client. The testing begins by creating threads for both clients, with the malicious client accessing to the port before the benevolent client, damaging in this way the connection.
