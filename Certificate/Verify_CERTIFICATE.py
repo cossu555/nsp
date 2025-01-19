@@ -22,7 +22,7 @@ def verify_certificate(cert_data, trusted_cert_file_path):
     # Load the trusted CA certificate from the file
     with open(trusted_cert_file_path, "rb") as f:
         trusted_cert_data = f.read()  # Read the trusted CA certificate as bytes
-    trusted_certificate = x509.load_pem_x509_certificate(trusted_cert_data)  # Parse the CA certificate
+    trusted_certificate = x509.load_pem_x509_certificate(trusted_cert_data)  # Analyze the CA certificate
 
     # Verify the signature of the provided certificate using the trusted CA's public key
     try:
