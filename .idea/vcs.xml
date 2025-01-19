@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <!-- This is the root element of the project configuration, specifying the project version (4). -->
   <component name="VcsDirectoryMappings">
+    <!-- This component manages the version control system (VCS) mappings for the project directories. -->
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <!-- The mapping element specifies the VCS (version control system) to be used for a particular directory. 
+         - `$PROJECT_DIR$` is a placeholder that refers to the root directory of the project.
+         - `vcs="Git"` indicates that Git is used as the version control system for this project directory. -->
   </component>
 </project>
