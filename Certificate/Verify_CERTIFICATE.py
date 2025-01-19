@@ -43,11 +43,13 @@ def verify_certificate(cert_data, trusted_cert_file_path):
     return True  # Certificate is verified successfully
 
 def get_cert_details(cert_data):
+    
     """
     Extract details from a certificate.
     :param cert_data: The certificate in PEM format (as bytes).
     :return: A dictionary containing key details about the certificate.
     """
+    
     # Load the certificate from PEM format
     cert = load_pem_x509_certificate(cert_data, default_backend())
 
