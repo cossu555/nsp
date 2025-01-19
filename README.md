@@ -1,13 +1,10 @@
 1.HTTP Connection:
 
 The client first establishes a connection with the server over HTTP on port 80 and sends a "Hi server" message.
-The client then disconnects from the HTTP server.
 
 2.HTTPS Protocol:
 
-The connection switches to HTTPS, and a 3-way TCP handshake is performed between the client and server.
-The client verifies the server's certificate to ensure it’s trusted.
-A session key is securely exchanged between the client and server using RSA encryption.
+The server answers with a 301 redirect that resends the user to the HTTPS version of the site, so the connection switches to HTTPS, and a 3-way TCP handshake is performed between the client and server. The client verifies the server's certificate to ensure it’s trusted. A session key is securely exchanged between the client and server using RSA encryption.
 
 3.Encrypted Messaging:
 
