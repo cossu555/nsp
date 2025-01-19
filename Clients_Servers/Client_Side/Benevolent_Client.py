@@ -1,6 +1,6 @@
 import http.client  # For handling HTTP communication
 import socket  # For low-level TCP communication
-import json  # For JSON serialization and deserialization
+import json  # For JSON serialization and deserialization, JSON for structured data exchange
 import time  # For managing delays in communication
 from threading import Thread  # For handling concurrent operations
 import Certificate.Verify_CERTIFICATE as VerifyCertificate  # Custom module for certificate verification
