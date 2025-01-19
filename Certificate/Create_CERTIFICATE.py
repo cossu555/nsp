@@ -1,4 +1,5 @@
 # Import necessary modules from the cryptography library
+#pip install cryptography
 from cryptography.hazmat.backends import default_backend  # Provides cryptographic backends
 from cryptography.hazmat.primitives import hashes, serialization  # For hashing and key serialization
 from cryptography.x509 import Name, NameAttribute, CertificateBuilder  # For building certificates
