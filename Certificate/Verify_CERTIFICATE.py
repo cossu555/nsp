@@ -29,7 +29,7 @@ def verify_certificate(cert_data, trusted_cert_file_path):
         trusted_certificate.public_key().verify(
             certificate.signature,  # The signature from the provided certificate
             certificate.tbs_certificate_bytes,  # The certificate's data to be signed
-            padding.PKCS1v15(),  # Use PKCS#1 v1.5 padding (common for certificates)
+            padding.PKCS1v15(),  # Use PKCS1 v1.5 padding (common for certificates)
             certificate.signature_hash_algorithm  # The hash algorithm used for the signature
         )
     except Exception as e:
