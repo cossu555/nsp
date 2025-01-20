@@ -1,6 +1,7 @@
 **Instructions to use the code:**
 
-You have to download the scripts as you can find here (same directories and python files' names). Later, you have to launch "main_malicious.py" and "main_benevolent.py" (they shouldn't be ran in parallel). These mains exploit functions that are in python files' imported (first lines of the code). 
+You have to download the scripts as you can find here (same directories and python files' names). Later, you have to launch "main_malicious.py" and "main_benevolent.py" (they shouldn't be ran in parallel). When you execute "main_benevolent.py," the IDE will prompt you to enter a message. You need to provide a message. 
+These mains exploit functions that are in python files' imported (first lines of the code). 
 
 
 **Explanation of the code:**
