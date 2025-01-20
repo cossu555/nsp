@@ -1,6 +1,6 @@
 **Instructions to use the code:**
 
-You have to download the scripts as you can find here (same directories and python files' names) and then you have to launch "main_malicious.py" and "main_benevolent.py" (the order isn't important but they can't be ran in parallel). These mains exploit functions that are in python files' imported (first lines of the code). 
+You have to download the scripts as you can find here (same directories and python files' names). Later, you have to launch firstly "main_malicious.py" and then "main_benevolent.py" ( they can't be ran in parallel). These mains exploit functions that are in python files' imported (first lines of the code). 
 
 
 **Explanation of the code:**
@@ -23,5 +23,5 @@ The client sends a message to the server, which is encrypted using the session k
 
 5._DoS attack_:
 
-In addition to the benevolent client, the project includes a malicious client that simulates a Man-in-the-Middle (MitM) attack. This malicious client persistenly tries to access to 443 port until it succeeds, then it tries to convert an HTTPS connection in HTTP connection, it's an SSL stripping attack (a particular type of man in the middle attack). It aims to make more unsecure the connection in order to damage the communication between server and client.
+The attack consists to not allow the benevolent client to switch from http to https. We do this by starting the malicious client first and every 10 seconds it sends a connection request to the server on port 443. The attack works because the server has a weakness: it allows only one client at a time to connect to port 443. In this way when the benevolent client tries to access it fails.
 
