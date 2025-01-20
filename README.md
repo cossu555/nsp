@@ -4,6 +4,7 @@ You have to download the scripts as you can find here (same directories and pyth
 
 
 **Explanation of the code:**
+
 1.HTTP Connection:
 
 The client first establishes a connection with the server over HTTP on port 80 and sends a "Hi server" message.
