@@ -2,7 +2,7 @@
 import time
 
 # Import the malevolent client, simple client, and weak server implementations
-import Clients_Servers.Client_Side.Malevolent_Clinet as M_C
+import Clients_Servers.Client_Side.Malevolent_Client as M_C
 import Clients_Servers.Client_Side.Simple_Client as S_C
 import Clients_Servers.Server_Side.Weak_Server as W_S
 
