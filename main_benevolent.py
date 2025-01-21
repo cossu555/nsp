@@ -5,7 +5,7 @@ import time
 
 # Defining the ports for HTTP and HTTPS, and the server address
 HTTP_PORT = 80
-HTTPS_PORT = 443
+HTTPS_PORT = int(input("Write the port you want to use as HTTPS' port: "))
 IPS = ""  # Empty string for IP address, can be set to specific IP if needed
 SERVER_ADDRESS = "127.0.0.1"  # Localhost address
 
