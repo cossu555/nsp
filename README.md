@@ -27,3 +27,6 @@ The client sends a message to the server, which is encrypted using the session k
 
 The attack consists to not allow the benevolent client to switch from http to https. We do this by starting the malicious client first and every 10 seconds it sends a connection request to the server on port 443. The attack works because the server has a weakness: it allows only one client at a time to connect to port 443. In this way when the benevolent client tries to access it fails.
 
+**Requirements:**
+
+You should use as IDE the PyCharm's version 3.12 or following if not it could present exceptions in different versions.
