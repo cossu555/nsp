@@ -29,4 +29,4 @@ The attack consists to not allow the benevolent client to switch from http to ht
 
 **Requirements:**
 
-You should use as IDE the PyCharm's version 3.12 or following if not it could present exceptions in different versions.
+You should use as IDE the PyCharm's version 3.12 or following because it could present exceptions in different versions.
