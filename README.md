@@ -1,6 +1,6 @@
 **Instructions to use the code:**
 
-You have to download the scripts as you can find here (same directories and python files' names). Then, it's necessary to put these commands on the terminal (order isn't important): "pip install cryptodome" and "pip install cryptography". Later, you have to run the file called "interface.py" which cosists of the interface of our program. After launching it you could choose which scenario, malicious or benevolent, you want to see (it could do this after importing and calling "main_malicious.py" or "main_benevolent.py").
+You have to download the scripts as you can find here (same directories and python files' names). Then, it's necessary to put these commands on the terminal (order isn't important): "pip install cryptodome" and "pip install cryptography". Later, you have to run the file called "interface.py" which cosists of the interface of our program. After launching it, you could choose which scenario, malicious or benevolent, you want to see (it could do this after importing and calling "main_malicious.py" or "main_benevolent.py").
 
 
 
