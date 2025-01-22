@@ -1,8 +1,10 @@
 **Instructions to use the code:**
 
-You have to download the scripts as you can find here (same directories and python files' names). Later, you have to run the file called "interface.py" which cosists of the interface of our program. After launching it you could choose which scenario, malicious or benevolent, you want to see (it could do this after importing and calling "main_malicious.py" or "main_benevolent.py").
+You have to download the scripts as you can find here (same directories and python files' names). Then, it's necessary to put these commands on the terminal (order isn't important): "pip install cryptodome" and "pip install cryptography". Later, you have to run the file called "interface.py" which cosists of the interface of our program. After launching it you could choose which scenario, malicious or benevolent, you want to see (it could do this after importing and calling "main_malicious.py" or "main_benevolent.py").
 
-About the execution of the code on Virtual Machines(VM) it's crucial to put the following commands: "pip install cryptodome" and "pip install cryptography" before the running of the scripts.
+
+
+About the execution of the code on Virtual Machines(VM) it's crucial to put the following commands on the terminal: "pip install cryptodome" and "pip install cryptography" before the running of the scripts.
 
 **Explanation of the code:**
 
@@ -32,7 +34,7 @@ At the end, we run our code on two different virtual machines which work one as 
 
 **Requirements:**
 
--You should use as IDE the PyCharm's version 3.12 or following because it could present exceptions in previous versions. 
+-we suggest to use as IDE the PyCharm's version 3.12 or following because it could present exceptions in previous versions. 
 
 -You couldn't run this code using Google Colab beacuse it doesn't allow executing code that uses port 80 or other directly accessible network ports for various reasons related to security and the service's architecture. 
 
