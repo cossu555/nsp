@@ -22,4 +22,3 @@ def _connect_to_server(host, port):
             # If the connection fails, print the error and retry after a delay
             print(f"Malevolent Client: Connection failed: {e}. Retrying...")
             time.sleep(5)  # Wait 5 seconds before the next connection attempt
-
