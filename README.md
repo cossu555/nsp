@@ -27,4 +27,12 @@ This attack consists to not allow the benevolent client to switch from http to h
 
 **Requirements:**
 
-You should use as IDE the PyCharm's version 3.12 or following because it could present exceptions in previous versions. You couldn't run this code using Google Colab beacuse it doesn't allow executing code that uses port 80 or other directly accessible network ports for various reasons related to security and the service's architecture.
+-You should use as IDE the PyCharm's version 3.12 or following because it could present exceptions in previous versions. 
+-You couldn't run this code using Google Colab beacuse it doesn't allow executing code that uses port 80 or other directly accessible network ports for various reasons related to security and the service's architecture. 
+-Problems could be presented also in other online IDEs (such as Replit or Gitpod) because some online IDEs (for example Replit) allow networking, but often redirect ports in a specific range, such as 3000-5000. Use of privileged ports (such as 80 and 443) is generally blocked. Complex networking functions such as TCP handshakes or key exchanges may fail due to limitations in connection configuration. So, it may not work unless you change the ports and check the environment texts.
+-Environments with Network Restrictions (e.g. University or Corporate) because the environment may block specific ports, such as 80 and 443, or limit non-standard TCP connections for security reasons. So, it's possibile that it doesn't work due to network policies.
+
+Possible solutions to make the code more portable in a specific IDE:
+Change ports: Use unprivileged ports, such as 8080 (HTTP) and 8443 (HTTPS).
+Control privileges: Run with elevated permissions only if necessary and in local environments.
+Configure the environment: Check and configure firewalls, network rules, and available ports.
