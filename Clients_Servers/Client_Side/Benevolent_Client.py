@@ -105,7 +105,7 @@ class Benevolent_Client:
         """
         
         start_thread = Thread(target=self._CERTIFICATE_Check)
-        start_thread.daemon = True
+        start_thread.daemon = False  # Ensure thread continues running in the background
         start_thread.start()
 
     def _CERTIFICATE_Check(self):
@@ -162,7 +162,7 @@ class Benevolent_Client:
         """
         
         start_thread = Thread(target=self._key_exchange)
-        start_thread.daemon = True
+        start_thread.daemon = False  # Run in the background
         start_thread.start()
 
     def _key_exchange(self):
