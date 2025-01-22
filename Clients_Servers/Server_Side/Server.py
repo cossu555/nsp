@@ -37,7 +37,7 @@ class Server:
         """
         
         start_thread = Thread(target=self._start_HTTPserver, args=(PORT, IPS))
-        start_thread.daemon = False  # Keeps the thread alive
+        start_thread.daemon = True
         start_thread.start()
 
     def _start_HTTPserver(self, PORT=80, IPS=""):
@@ -58,7 +58,7 @@ class Server:
         """
         
         start_thread = Thread(target=self._TCP_handshake, args=(MY_IP_ADDRESS, HANDSHAKE_PORT))
-        start_thread.daemon = False
+        start_thread.daemon = True
         start_thread.start()
 
     def _TCP_handshake(self, MY_IP_ADDRESS, HANDSHAKE_PORT):
