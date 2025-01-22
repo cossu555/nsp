@@ -1,26 +1,32 @@
 # Import needed libraries
 import socket
-import ssl
 
 # Function for the second client to attempt a connection to the server
 def second_client_attempt(host, port):
+    # Create a socket object
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
-        # Create a secure SSL context for the connection
-        context = ssl.create_default_context()
-        
-        # Establish a TCP connection to the specified host and port
-        with socket.create_connection((host, port)) as s:
-            # Wrap the TCP connection in SSL for secure communication
-            with context.wrap_socket(s, server_hostname=host) as ssl_sock:
-                print("Benevolent Client: Second client connected to server.")
-                
-                # Send an HTTP GET request to the server
-                request = f"GET / HTTP/1.1\r\nHost: {host}\r\n\r\n"
-                ssl_sock.sendall(request.encode())
-                
-                # Receive and print the server's response
-                response = ssl_sock.recv(1024)
-                print(f"Benevolent Client: Second client received: {response.decode()}")
+        # Connect to the server
+        client_socket.connect((host, port))
+        print(f"Connected to server at {host}:{port}")
+
+        # Send a message to the server
+        message = "Hello, server!"
+        client_socket.sendall(message.encode('utf-8'))
+        print(f"Sent: {message}")
+
+        # Receive a response from the server
+        response = client_socket.recv(1024).decode('utf-8')
+        print(f"Received: {response}")
     except Exception as e:
-        # Handle and print any errors that occur during the connection
-        print(f"Benevolent Client: Second client failed to connect: {e}")
+        print(f"Error: {e}")
+    finally:
+        # Close the connection
+        client_socket.close()
+        print("Connection closed.")
+
+
+if __name__=="__main__":
+    host = "172.20.10.13"
+    port=443
+    second_client_attempt(host,port)
