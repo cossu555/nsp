@@ -1,8 +1,6 @@
 **Instructions to use the code:**
 
-You have to download the scripts as you can find here (same directories and python files' names). Later, you have to launch "main_malicious.py" and "main_benevolent.py" (they shouldn't be ran in parallel). When you execute "main_benevolent.py," the IDE will prompt you to enter a message, you need to provide a message. 
-
-These mains exploit functions that are in python files' imported (first lines of the code). 
+You have to download the scripts as you can find here (same directories and python files' names). Later, you have to run the file called "interface.py" which cosists of the interface of our program. After launching it you could choose which scenario, malicious or benevolent, you want to see (it could do this after importing and calling "main_malicious.py" or "main_benevolent.py").
 
 
 **Explanation of the code:**
@@ -29,4 +27,4 @@ The attack consists to not allow the benevolent client to switch from http to ht
 
 **Requirements:**
 
-You should use as IDE the PyCharm's version 3.12 or following because it could present exceptions in different versions.
+You should use as IDE the PyCharm's version 3.12 or following because it could present exceptions in previous versions. You couldn't run this code using Google Colab beacuse it doesn't allow executing code that uses port 80 or other directly accessible network ports for various reasons related to security and the service's architecture.
