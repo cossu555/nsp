@@ -26,7 +26,8 @@ The client sends a message to the server, which is encrypted using the session k
 
 This attack consists to not allow the benevolent client to switch from http to https. We do this by starting the malicious client first and every 10 seconds it sends a connection request to the server on port 443. The attack works because the server has a weakness: it allows only one client at a time to connect to port 443. In this way when the benevolent client tries to access it fails.
 
-6._Implementation on Virtual Machines_
+6._Implementation on Virtual Machines_:
+
 At the end, we run our code on two different virtual machines which work one as the client and one as the server, in order to see the comunication and the packets' exchange. In this part, we separate the client from the server because we have two different addresses associated to two different machines, this implementation is different from the previous one where we use the local host's as address of both client and server.
 
 **Requirements:**
