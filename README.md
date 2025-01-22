@@ -1,7 +1,7 @@
 **Instructions to use the code:**
 
 You have to download the scripts as you can find here (same directories and python files' names). Later, you have to run the file called "interface.py" which cosists of the interface of our program. After launching it you could choose which scenario, malicious or benevolent, you want to see (it could do this after importing and calling "main_malicious.py" or "main_benevolent.py").
-
+About the execution of the code on Virtual Machines(VM) it's crucial to put the following commands: "pip install cryptodome" and "pip install cryptography".
 
 **Explanation of the code:**
 
