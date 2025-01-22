@@ -8,7 +8,7 @@ import Clients_Servers.Server_Side.Weak_Server as W_S
 
 # Define the server's host address and port number
 server_host = "127.0.0.1"  # Replace with the server's actual address
-server_port = 443          # Standard HTTPS port for secure communication
+server_port = int(input("Write the port you want to choose as server's port: "))   # HTTPS port for secure communication
 
 # Step 1: Start the connection from the malevolent client
 # This client attempts to connect to the server before other clients
