@@ -8,7 +8,15 @@ import Clients_Servers.Server_Side.Weak_Server as W_S
 
 # Define the server's host address and port number
 server_host = "127.0.0.1"  # Replace with the server's actual address
-server_port = 443          # Standard HTTPS port for secure communication
+# If the input is invalid, display an error message and prompt again
+while True:
+    try:
+        server_port = int(input("Write the port you want to use as HTTPS' port: "))
+        if server_port <= 0 or server_port > 65535:
+            raise ValueError("Port number must be between 1 and 65535.")
+        break
+    except ValueError as e:
+        print(f"Invalid input: {e}. Please enter a valid port number.")
 
 # Step 1: Start the connection from the malevolent client
 # This client attempts to connect to the server before other clients
