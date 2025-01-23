@@ -8,14 +8,8 @@ from cryptography.hazmat.primitives import serialization  # For serialization of
 import datetime  # For managing and comparing certificate validity periods
 
 
+# Verifying a certificate against a trusted Certificate Authority
 def verify_certificate(cert_data, trusted_cert_file_path):
-    """
-    Verify a certificate against a trusted Certificate Authority (CA).
-    :param cert_data: The certificate to verify (in PEM format as bytes).
-    :param trusted_cert_file_path: Path to the trusted CA certificate file (in PEM format).
-    :return: True if the certificate is valid, False otherwise.
-    """
-
     try:
         # Load the provided certificate from PEM format
         certificate = x509.load_pem_x509_certificate(cert_data)
@@ -55,13 +49,8 @@ def verify_certificate(cert_data, trusted_cert_file_path):
         return False
 
 
+# Extract details from a certificate
 def get_cert_details(cert_data):
-    """
-    Extract details from a certificate.
-    :param cert_data: The certificate in PEM format (as bytes).
-    :return: A dictionary containing key details about the certificate.
-    """
-
     try:
         # Load the certificate from PEM format
         cert = load_pem_x509_certificate(cert_data, default_backend())
