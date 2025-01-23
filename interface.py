@@ -25,22 +25,18 @@ def run_scenario(choice):
 
 def main():
     # Main function to drive the program
-    while True:
-        show_welcome_message()
+    #while True:
+    show_welcome_message()
 
-        user_input = input("Insert your choice here or type 'exit' to quit: ").strip().lower()
+    user_input = input("Insert your choice here or type 'exit' to quit: ").strip().lower()
 
-        if user_input == "exit":
-            print("\nThank you for joining! Exiting the program.")
-            sys.exit()  # Exit the program
-        else:
-            run_scenario(user_input)
-        # After running the scenario, ask if the user wants to try another one
-        continue_choice = input("\nWould you like to choose another scenario? (yes/no): ").strip().lower()
-        if continue_choice != "yes":
-            print("Thank you for joining! Exiting the program.")
-            sys.exit()  # Exit the program if the user doesn't want to continue
+    if user_input == "exit":
+        print("\nThank you for joining! Exiting the program.")
+        sys.exit()  # Exit the program
+    else:
+        run_scenario(user_input)
 
 
 if __name__ == "__main__":
     main()
+
