@@ -8,7 +8,7 @@ def second_client_attempt(host, port):
     try:
         # Connect to the server
         client_socket.connect((host, port))
-        print(f"Try to connect to server at {host}:{port}")
+        print(f"Benevolent_client: Try to connect to server at {host}:{port}")
 
         # Send a message to the server
         message = "Hello, server!"
