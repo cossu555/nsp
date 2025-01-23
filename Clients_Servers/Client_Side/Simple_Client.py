@@ -13,11 +13,12 @@ def second_client_attempt(host, port):
         # Send a message to the server
         message = "Hello, server!"
         client_socket.sendall(message.encode('utf-8'))
-        print(f"Sent: {message}")
-
+        print(f"B_Client: Sent: {message}")
+        recieve=client_socket.recv(1024)
+        print(f"B_Client: Received: {recieve}")
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"B_Client: Error: {e}")
     finally:
         # Close the connection
         client_socket.close()
-        print("Connection closed.")
+        print("B_Cient: Connection closed.")
