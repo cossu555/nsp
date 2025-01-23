@@ -3,6 +3,10 @@ import http.server  # Import the library for creating an HTTP server
 
 # Define a custom handler class for processing HTTP requests
 class MyHandler(http.server.SimpleHTTPRequestHandler):
+    # Fixing log messages
+    def log_message(self, format, *args):
+        pass
+        
     def do_POST(self):
         """
         Handle an HTTP POST request.
