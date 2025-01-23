@@ -15,9 +15,6 @@ def second_client_attempt(host, port):
         client_socket.sendall(message.encode('utf-8'))
         print(f"Sent: {message}")
 
-        # Receive a response from the server
-        response = client_socket.recv(1024).decode('utf-8')
-        print(f"Received: {response}")
     except Exception as e:
         print(f"Error: {e}")
     finally:
