@@ -13,13 +13,15 @@ server_port = 443          # Standard HTTPS port for secure communication
 # Step 1: Start the connection from the malevolent client
 # This client attempts to connect to the server before other clients
 M_C.connect_to_server(server_host, server_port)
-time.sleep(25)  # Allow some time for the connection to establish
+time.sleep(0.1)  # Allow some time for the connection to establish
 
-# Step 2: Start the weak server with secure mode
+# Step 2: Start the weak server
 # The server listens on the defined host and port for incoming connections
-W_S.start_server(server_host, server_port, secure_mode=True)
+W_S.start_server(server_host, server_port)
+
 time.sleep(10)  # Allow the server some time to initialize and begin listening
 
 # Step 3: A second client attempts to connect
 # This represents a normal client trying to communicate with the server
+print("#####################################################################")
 S_C.second_client_attempt(server_host, server_port)
