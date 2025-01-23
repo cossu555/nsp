@@ -5,8 +5,8 @@ import json  # For JSON serialization and deserialization, JSON for structured d
 import time  # For managing delays in communication
 from threading import Thread  # For handling concurrent operations
 import Certificate.Verify_CERTIFICATE as VerifyCertificate  # Custom module for certificate verification
-import Encryption.AES_Encryption as AES_ENCRYPTION  # Custom module for AES encryption
-import Encryption.RSA_Encryption as RSA_ENCRYPTION  # Custom module for RSA encryption
+import Encryption.AES_Encryption as AES_ENCRYPTION  # Custom module for AES encryption.
+import Encryption.RSA_Encryption as RSA_ENCRYPTION  # Custom module for RSA encryption.
 
 class VMClient(BC.Benevolent_Client):
     pass
