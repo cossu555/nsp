@@ -10,14 +10,8 @@ import datetime  # For setting certificate validity dates
 import Encryption.RSA_Encryption as RSA_ENCRYPTION
 
 
+# Generating a self-signed X.509 certificate using a given private and public key
 def gen_certificate(private_key_pem, public_key_pem):
-    """
-    Generate a self-signed X.509 certificate using a given private and public key.
-    :param private_key_pem: Private key in PEM format (as bytes).
-    :param public_key_pem: Public key in PEM format (as bytes).
-    :return: The generated certificate in PEM format (as bytes).
-    """
-
     # Deserialize the private key from PEM format to a usable object
     private_key = serialization.load_pem_private_key(
         private_key_pem,  # The PEM-formatted private key
@@ -70,13 +64,8 @@ def gen_certificate(private_key_pem, public_key_pem):
     return certificate.public_bytes(serialization.Encoding.PEM)
 
 
+# Reading a certificate from a file
 def read_certificate(cert_file_path):
-    """
-    Read a certificate from a file.
-    :param cert_file_path: Path to the certificate file.
-    :return: The certificate contents as bytes.
-    """
-
     # Open the certificate file in binary mode and read its contents
     with open(cert_file_path, "rb") as cert_file:
         certificate = cert_file.read()  # Read the entire certificate file into memory
