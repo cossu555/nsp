@@ -33,7 +33,7 @@ class Server:
     def startHTTP(self, PORT=80, IPS=""):
         try:
             start_thread = Thread(target=self._start_HTTPserver, args=(PORT, IPS))
-            start_thread.daemon = False  # Keeps the thread alive
+            start_thread.daemon = True
             start_thread.start()
         except Exception as e:
             print(f"Error starting HTTP server: {e}")
@@ -51,7 +51,7 @@ class Server:
     def TCP_handshake(self, MY_IP_ADDRESS, HANDSHAKE_PORT):
         try:
             start_thread = Thread(target=self._TCP_handshake, args=(MY_IP_ADDRESS, HANDSHAKE_PORT))
-            start_thread.daemon = False
+            start_thread.daemon = True
             start_thread.start()
         except Exception as e:
             print(f"Error starting TCP handshake: {e}")
