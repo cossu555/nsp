@@ -6,12 +6,9 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
     # Fixing log messages
     def log_message(self, format, *args):
         pass
-        
-    def do_POST(self):
-        """
-        Handle an HTTP POST request.
-        """
 
+    # HTTP POST request
+    def do_POST(self):
         try:
             # Read the content length header to determine the size of the incoming message
             content_length = int(self.headers['Content-Length'])
@@ -54,11 +51,8 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"Internal Server Error")
 
+    # HTTP GET request
     def do_GET(self):
-        """
-        Handle an HTTP GET request. (This method is defined but not actively used in this implementation.)
-        """
-
         try:
             # Send a 200 OK response status
             self.send_response(200)
@@ -79,4 +73,3 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b"Internal Server Error")
-
