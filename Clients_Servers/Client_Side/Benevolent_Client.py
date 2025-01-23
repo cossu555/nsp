@@ -105,7 +105,7 @@ class Benevolent_Client:
     def CERTIFICATE_Check(self):
         try:
             start_thread = Thread(target=self._CERTIFICATE_Check)
-            start_thread.daemon = False  # Ensure thread continues running in the background
+            start_thread.daemon = True  # Ensure thread continues running in the background
             start_thread.start()
         except Exception as e:
             print(f"Error starting certificate check thread: {e}")
@@ -165,7 +165,7 @@ class Benevolent_Client:
     def key_exchange(self):
         try:
             start_thread = Thread(target=self._key_exchange)
-            start_thread.daemon = False  # Run in the background
+            start_thread.daemon = True  # Run in the background
             start_thread.start()
         except Exception as e:
             print(f"Error starting key exchange thread: {e}")
