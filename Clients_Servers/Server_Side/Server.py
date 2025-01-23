@@ -12,14 +12,8 @@ import time
 
 class Server:
 
+    # Initializing the server with default settings
     def __init__(self, MY_IP_ADDRESS='127.0.0.1'):
-
-        """
-        Initialize the server with default settings.
-        - Generate RSA private and public keys.
-        - Generate a self-signed certificate using the keys.
-        """
-
         self.MY_IP_ADDRESS = MY_IP_ADDRESS
         self.server_conn = None  # Placeholder for the client connection
         self.Client_Algo = None  # Placeholder for the encryption algorithm chosen by the client
@@ -35,12 +29,8 @@ class Server:
             print(f"Error during server initialization: {e}")
             raise
 
+    # Starting an HTTP server on a separate thread
     def startHTTP(self, PORT=80, IPS=""):
-
-        """
-        Start an HTTP server on a separate thread.
-        """
-
         try:
             start_thread = Thread(target=self._start_HTTPserver, args=(PORT, IPS))
             start_thread.daemon = False  # Keeps the thread alive
@@ -48,13 +38,8 @@ class Server:
         except Exception as e:
             print(f"Error starting HTTP server: {e}")
 
+    # Starting HTTP server
     def _start_HTTPserver(self, PORT=80, IPS=""):
-
-        """
-        Actual method to start the HTTP server.
-        - Binds the server to the specified IP and port.
-        """
-
         try:
             httpd = socketserver.TCPServer((IPS, PORT), MyHandler)
             print(f"Server started on {self.MY_IP_ADDRESS}:{PORT}")
@@ -62,12 +47,8 @@ class Server:
         except Exception as e:
             print(f"Error starting HTTP server: {e}")
 
+    # Starting the TCP handshake process in a separate thread
     def TCP_handshake(self, MY_IP_ADDRESS, HANDSHAKE_PORT):
-
-        """
-        Start the TCP handshake process in a separate thread.
-        """
-
         try:
             start_thread = Thread(target=self._TCP_handshake, args=(MY_IP_ADDRESS, HANDSHAKE_PORT))
             start_thread.daemon = False
@@ -75,13 +56,8 @@ class Server:
         except Exception as e:
             print(f"Error starting TCP handshake: {e}")
 
+    # Performing a TCP 3-way handshake
     def _TCP_handshake(self, MY_IP_ADDRESS, HANDSHAKE_PORT):
-
-        """
-        Perform a TCP three-way handshake:
-        - SYN -> SYN-ACK -> ACK
-        """
-
         try:
             server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             server_socket.bind((MY_IP_ADDRESS, HANDSHAKE_PORT))  # Bind the socket to the IP and port
@@ -115,14 +91,8 @@ class Server:
             print(f"Error during TCP handshake: {e}")
             return False
 
+    # Performing certificate exchange
     def CHERTIFICATE_check(self):
-
-        """
-        Perform certificate exchange:
-        - Server sends 'Server Hello' with encryption details.
-        - Sends its certificate to the client.
-        """
-
         try:
             # Receive 'Client Hello' message
             client_hello = self.server_conn.recv(1024)
@@ -151,14 +121,8 @@ class Server:
         except Exception as e:
             print(f"Error during certificate exchange: {e}")
 
+    # Performing key exchange
     def key_exchange(self):  # Server
-
-        """
-        Perform key exchange:
-        - Server receives the AES key encrypted with its public key.
-        - Decrypts the key using its private RSA key.
-        """
-
         try:
             # Receive the encrypted AES key from the client
             aes_enc = self.server_conn.recv(1024)
@@ -176,13 +140,8 @@ class Server:
             print(f"Error during key exchange: {e}")
             return False
 
+    # Performing the final handshake phase
     def final_exchange(self):
-
-        """
-        Perform the final handshake phase:
-        - Receive and respond with 'Change Cipher Spec + Finished'.
-        """
-
         try:
             msg = self.server_conn.recv(1024)  # Receive final message from client
             self.server_conn.sendall(b"gChange Cipher Spec + Finished")  # Respond to the client
@@ -190,13 +149,8 @@ class Server:
         except Exception as e:
             print(f"Error during final exchange: {e}")
 
+    # Receiving and decrypting a message from the client
     def recieve_msg(self):
-
-        """
-        Receive and decrypt a message from the client:
-        - Uses the session key to decrypt the incoming message.
-        """
-
         try:
             # Receive the encrypted message from the client
             msg = self.server_conn.recv(1024)
