@@ -9,25 +9,15 @@ import Encryption.RSA_Encryption as RSA_ENCRYPTION  # Custom module for RSA encr
 
 
 class Benevolent_Client:
-
+    # Initializing the client with default values
     def __init__(self):
-
-        """
-        Initialize the client with default values.
-        """
         self.Client = None  # Placeholder for the client connection
         self.SERVER_PUBLIC_KEY = None  # Server's public key, obtained during the handshake
         self.Algo_chose = None  # Chosen encryption algorithm
         self.SESSION_KEY = None  # Session key for AES encryption
 
+    # Starting an HTTP connection to the server
     def http_start(self, server_address, server_port):
-
-        """
-        Start an HTTP connection to the server.
-        :param server_address: The server's IP address or hostname.
-        :param server_port: The server's port for HTTP communication.
-        """
-
         try:
             self.Client = http.client.HTTPConnection(server_address, server_port)  # Create HTTP connection
             print(f"Client connected to {server_address}:{server_port}")  # Inform the user
@@ -35,29 +25,19 @@ class Benevolent_Client:
             print(f"Error starting HTTP connection: {e}")
             self.Client = None
 
+    # Sending a message to the server over HTTP
     def Send_Message(self, message):
-
-        """
-        Send a message to the server over HTTP.
-        :param message: The message to send (string format).
-        """
-
         if self.Client is None:
             print("Error: HTTP connection is not established.")
             return
-
         try:
             headers = {'Content-Type': 'text/plain'}  # Specify plain text content type
             self.Client.request("POST", "/", body=message, headers=headers)  # Send an HTTP POST request
         except (http.client.HTTPException, socket.error) as e:
             print(f"Error sending message: {e}")
 
+    # Closing the HTTP connection 
     def http_end(self):
-
-        """
-        Close the HTTP connection.
-        """
-
         if self.Client:
             try:
                 self.Client.close()  # Close the connection
@@ -67,18 +47,8 @@ class Benevolent_Client:
             finally:
                 self.Client = None  # Reset the client
 
-    import socket
-    import time  # Aggiungiamo il modulo time per gestire i ritardi tra i tentativi
-
-    import socket
-
+    # Performing a TCP 3-way handshake with the server
     def TCP_handshake(self, SERVER_ADDRESS, HANDSHAKE_PORT):
-        """
-        Perform a TCP three-way handshake with the server.
-        :param SERVER_ADDRESS: The server's IP address or hostname.
-        :param HANDSHAKE_PORT: The server's port for the handshake process.
-        :return: True if handshake succeeds, False otherwise.
-        """
         max_attempts = 3  # Maximum number of attempts
         attempt = 0
 
@@ -113,13 +83,8 @@ class Benevolent_Client:
         print("Client: Handshake failed after 3 attempts.")
         raise Exception("TCP Handshake failed after 3 attempts")
 
+    # Preparing JSON data for communication
     def prepare_data(self, START_COMM, CONTENT, VERSION, SESSION_ID, ENCRYPTION, KEY_EXCHANGE, MAC):
-
-        """
-        Prepare JSON data for communication.
-        :return: JSON-encoded data as bytes.
-        """
-
         try:
             data_dict = {
                 "start": START_COMM,
@@ -136,12 +101,8 @@ class Benevolent_Client:
             print(f"Error preparing data: {e}")
             return None
 
+    # Starting a thread to perform certificate verification
     def CERTIFICATE_Check(self):
-
-        """
-        Start a thread to perform certificate verification.
-        """
-
         try:
             start_thread = Thread(target=self._CERTIFICATE_Check)
             start_thread.daemon = False  # Ensure thread continues running in the background
@@ -149,12 +110,8 @@ class Benevolent_Client:
         except Exception as e:
             print(f"Error starting certificate check thread: {e}")
 
+    # Performing the ClientHello and verifying the server's certificate
     def _CERTIFICATE_Check(self):
-
-        """
-        Perform the ClientHello and verify the server's certificate.
-        """
-
         try:
             # Prepare the ClientHello message
             Client_Hello = self.prepare_data(
@@ -204,12 +161,8 @@ class Benevolent_Client:
         except (socket.error, json.JSONDecodeError, Exception) as e:
             print(f"Error during certificate verification: {e}")
 
+    # Starting a thread to perform the key exchange
     def key_exchange(self):
-
-        """
-        Start a thread to perform the key exchange.
-        """
-
         try:
             start_thread = Thread(target=self._key_exchange)
             start_thread.daemon = False  # Run in the background
@@ -217,13 +170,8 @@ class Benevolent_Client:
         except Exception as e:
             print(f"Error starting key exchange thread: {e}")
 
+    # Performing the client-side of the key exchange
     def _key_exchange(self):
-
-        """
-        Perform the client-side of the key exchange.
-        :return: True if the session key is set, False otherwise.
-        """
-
         try:
             AES_key = AES_ENCRYPTION.gen_key()  # Generate an AES session key
             self.SESSION_KEY = AES_key  # Store the session key
@@ -236,12 +184,8 @@ class Benevolent_Client:
             print(f"Error during key exchange: {e}")
             return False
 
+    # Notifying the server that the handshake is complete
     def final_exchange(self):
-
-        """
-        Notify the server that the handshake is complete.
-        """
-
         try:
             self.Client.sendall(b"gChange Cipher Spec + Finished")
             print("Client: Change Cipher Spec + Finished")
@@ -249,13 +193,8 @@ class Benevolent_Client:
         except (socket.error, Exception) as e:
             print(f"Error during final exchange: {e}")
 
+    # Encrypting and sending a message using the established session key
     def send_a_msg(self, msg):
-
-        """
-        Encrypt and send a message using the established session key.
-        :param msg: The plaintext message to send.
-        """
-
         if not self.SESSION_KEY:
             print("Error: Session key not established.")
             return
