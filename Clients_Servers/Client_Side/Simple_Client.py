@@ -24,9 +24,3 @@ def second_client_attempt(host, port):
         # Close the connection
         client_socket.close()
         print("Connection closed.")
-
-
-if __name__=="__main__":
-    host = "127.0.0.1"
-    port=443
-    second_client_attempt(host,port)
