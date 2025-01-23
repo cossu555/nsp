@@ -5,7 +5,6 @@ client = VM_client.VMClient()
 port = int(input("Enter port number: "))
 ip = input("Enter ip: (suggestion: 172.20.10.13)")
 
-
 #start HTTPS
 client.VM_start(ip, port)
 input("Press enter to continue:(0)")
