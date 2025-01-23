@@ -6,7 +6,10 @@ You have to download the scripts as you can find here (same directories and pyth
 
 About the execution of the code on Virtual Machines(VM) it's crucial to put the following commands on the terminal: "pip install cryptodome" and "pip install cryptography" before the running of the scripts.
 
+
 **Explanation of the code:**
+
+(For the implementation of https, libraries that already implemented this were not used (such as the SSL library) but it was done by explicitly stating all the steps of the standard)
 
 1._HTTP Connection_:
 
